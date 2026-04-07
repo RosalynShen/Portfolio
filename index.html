@@ -2310,7 +2310,7 @@
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
-        <a href="#/" class="nav-logo">
+        <a href="#/" class="nav-logo" id="nav-logo-link">
             <img src="assets/logo.png" alt="1202 Icon" class="logo-icon">
             <div class="logo-text-group">
                 <img src="assets/1202.png" alt="拾式零贰" class="logo-zh">
@@ -5490,9 +5490,13 @@
         }
 
         function updateHomeLink() {
+            const targetHref = `#${currentHomeContext}`;
+
             const homeLink = document.getElementById('nav-home-link');
-            if (!homeLink) return;
-            homeLink.setAttribute('href', `#${currentHomeContext}`);
+            if (homeLink) homeLink.setAttribute('href', targetHref);
+
+            const logoLink = document.getElementById('nav-logo-link');
+            if (logoLink) logoLink.setAttribute('href', targetHref);
         }
 
         function initScrollAnimations() {
